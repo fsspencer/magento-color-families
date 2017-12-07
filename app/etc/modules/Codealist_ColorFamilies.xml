@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Codealist_ColorFamilies>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Codealist_ColorFamilies>
+    </modules>
+</config>

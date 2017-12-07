@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <!--Add an option under the "Catalog" menu item on the Admin Panel-->
+        <catalog>
+            <children>
+                <codealist_colorfamilies>
+                    <title>Manage Color Families</title>
+                    <sort_order>400</sort_order>
+
+                    <!-- before the / comes the identifier tag specified
+                    in config.xml under <config><admin><routers>-->
+
+                    <!-- after the slash comes the controller name
+                    in lowercase and without the "Controller" prefix-->
+                    <action>codealist_colorfamilies_admin/entity</action>
+                </codealist_colorfamilies>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <catalog translate="title" module="Codealist_ColorFamilies">
+                        <title>Manage Color Families</title>
+                        <sort_order>60</sort_order>
+                        <children>
+                            <codealist_colorfamilies>
+                                <title>Manage Color Families</title>
+                            </codealist_colorfamilies>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

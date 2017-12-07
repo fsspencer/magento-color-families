@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Codealist_ColorFamilies>
+            <version>0.2.1</version>
+        </Codealist_ColorFamilies>
+    </modules>
+
+    <admin>
+        <routers>
+            <!-- This identifier will be used to set the "action" value in places like adminhtml.xml -->
+            <codealist_colorfamilies_admin>
+                <use>admin</use>
+                <args>
+                    <module>Codealist_ColorFamilies_Adminhtml</module>
+                    <!-- the frontName is the value used as URI on the url, right after /index.php/-->
+                    <frontName>colorfamilies</frontName>
+                </args>
+            </codealist_colorfamilies_admin>
+        </routers>
+    </admin>
+
+    <global>
+
+        <models>
+            <!-- Set general models-->
+            <codealist_colorfamilies>
+                <class>Codealist_ColorFamilies_Model</class>
+                <resourceModel>codealist_colorfamilies_mysql4</resourceModel>
+            </codealist_colorfamilies>
+
+            <!-- Set table names and resource model-->
+            <codealist_colorfamilies_mysql4>
+                <class>Codealist_ColorFamilies_Model_Mysql4</class>
+                <entities>
+                    <entity>
+                        <table>codealist_color_family_entity</table>
+                    </entity>
+                    <value>
+                        <table>codealist_color_family_values</table>
+                    </value>
+                </entities>
+            </codealist_colorfamilies_mysql4>
+        </models>
+
+        <!-- Even if you wont use the Helper, you need to create it, at least empty -->
+        <helpers>
+            <codealist_colorfamilies>
+                <class>Codealist_ColorFamilies_Helper</class>
+            </codealist_colorfamilies>
+        </helpers>
+
+        <blocks>
+            <!-- Blocks for frontend usage
+                ->createBlock('codealist_colorfamilies/yourclass')
+             -->
+            <codealist_colorfamilies>
+                <class>Codealist_ColorFamilies_Block</class>
+            </codealist_colorfamilies>
+
+            <!-- Blocks for admin usage
+                ->createBlock('codealist_colorfamilies_adminhtml/yourclass')
+             -->
+            <codealist_colorfamilies_adminhtml>
+                <class>Codealist_ColorFamilies_Block_Adminhtml</class>
+            </codealist_colorfamilies_adminhtml>
+        </blocks>
+
+        <!-- Mandatory to create read and write on the database -->
+        <resources>
+            <codealist_colorfamilies_setup>
+                <setup>
+                    <module>Codealist_ColorFamilies</module>
+                </setup>
+            </codealist_colorfamilies_setup>
+
+            <codealist_colorfamilies_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </codealist_colorfamilies_write>
+
+            <codealist_colorfamilies_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </codealist_colorfamilies_read>
+
+            <codealist_colorfamilies_setup>
+                <setup>
+                    <module>Codealist_ColorFamilies</module>
+                </setup>
+            </codealist_colorfamilies_setup>
+        </resources>
+    </global>
+</config>
